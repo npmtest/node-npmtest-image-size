@@ -1,4 +1,7 @@
-# test coverage for  [image-size (v0.5.1)](https://github.com/image-size/image-size#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-image-size.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-image-size) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-image-size.svg)](https://travis-ci.org/npmtest/node-npmtest-image-size)
+# npmtest-image-size
+
+#### basic test coverage for  [image-size (v0.5.1)](https://github.com/image-size/image-size#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-image-size.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-image-size) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-image-size.svg)](https://travis-ci.org/npmtest/node-npmtest-image-size)
+
 #### get dimensions of any image file
 
 [![NPM](https://nodei.co/npm/image-size.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/image-size)
