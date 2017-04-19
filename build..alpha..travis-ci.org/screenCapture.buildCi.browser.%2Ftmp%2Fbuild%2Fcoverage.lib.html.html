@@ -1,5 +1,5 @@
 <html lang="en"><head>
-    <title>Code coverage report for node-npmtest-image-size/node_modules/image-size/lib/readUInt.js</title>
+    <title>Code coverage report for node-npmtest-image-size/node_modules/image-size/bin/image-size.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -188,27 +188,27 @@
     </style>
 </head>
 <body>
-<div class="header low">
+<div class="header medium">
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-image-size">npmtest-image-size (v0.0.2)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-image-size/node_modules/image-size/lib/readUInt.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-image-size/node_modules/image-size/bin/image-size.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">33.33% <small>(2 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">61.11% <small>(11 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">25% <small>(1 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Functions: <span class="metric">0% <small>(0 / 1)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">33.33% <small>(2 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">61.11% <small>(11 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-image-size/node_modules/image-size/lib/</a> » readUInt.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-image-size/node_modules/image-size/bin/</a> » image-size.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -224,8 +224,50 @@
 10
 11
 12
-13</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -234,25 +276,58 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//#!/usr/bin/env node
+'use strict';
 &nbsp;
-// Abstract reading multi-byte unsigned integers
-<span class="fstat-no" title="function not covered">function readUInt (buffer, bits, offset, isBigEndian) {</span>
-<span class="cstat-no" title="statement not covered">  offset = offset || 0;</span>
-<span class="cstat-no" title="statement not covered">  var endian = !!isBigEndian ? 'BE' : 'LE';</span>
-<span class="cstat-no" title="statement not covered">  var method = buffer['readUInt' + bits + endian];</span>
-<span class="cstat-no" title="statement not covered">  return method.call(buffer, offset);</span>
+var fs = require('fs');
+var path = require('path');
+&nbsp;
+var imageSize = require('..');
+&nbsp;
+var files = process.argv.slice(2);
+&nbsp;
+<span class="missing-if-branch" title="else path not taken">E</span>if (!files.length) {
+  console.error('Usage: image-size image1 [image2] [image3] ...');
+  process.exit(-1);
 }
 &nbsp;
-module.exports = readUInt;
+var red = ['\x1B[31m', '\x1B[39m'];
+// var bold = ['\x1B[1m',  '\x1B[22m'];
+var grey = ['\x1B[90m', '\x1B[39m'];
+var green = ['\x1B[32m', '\x1B[39m'];
+&nbsp;
+files.forEach(<span class="fstat-no" title="function not covered">function (image) {</span>
+<span class="cstat-no" title="statement not covered">  try {</span>
+<span class="cstat-no" title="statement not covered">    if (fs.existsSync(path.resolve(image))) {</span>
+<span class="cstat-no" title="statement not covered">      var size = imageSize(image);</span>
+<span class="cstat-no" title="statement not covered">      var label = green[0] + size.width + green[1] +</span>
+                  grey[0] + 'x' + grey[1] +
+                  green[0] + size.height + green[1];
+<span class="cstat-no" title="statement not covered">      console.info(label, '-', grey[0] + image + grey[1]);</span>
+    } else {
+<span class="cstat-no" title="statement not covered">      console.error('file doesn\'t exist - ', image);</span>
+    }
+  } catch (e) {
+    // console.error(e.stack);
+<span class="cstat-no" title="statement not covered">    console.error(red[0] + e.message + red[1], '-', image);</span>
+  }
+});
 &nbsp;
 &nbsp;</pre></td></tr>
 </tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 15:50:41 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Wed Apr 19 2017 17:53:10 GMT+0000 (UTC)</div>
 </div>
 
 
